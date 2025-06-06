@@ -39,28 +39,259 @@ if 'dark_mode' not in st.session_state:
 def toggle_dark_mode():
     st.session_state.dark_mode = not st.session_state.dark_mode
 
-# Dark mode CSS
+# Comprehensive Dark mode CSS
 if st.session_state.dark_mode:
     st.markdown("""
     <style>
-    .stApp {
-        background-color: #1e1e1e;
-        color: #ffffff;
+    /* Force dark mode on everything */
+    .stApp, .stApp > div, .main, .block-container {
+        background-color: #0e1117 !important;
+        color: #B0B0B0 !important;
     }
-    .sidebar .sidebar-content {
-        background-color: #2d2d2d;
+    
+    /* Sidebar complete styling */
+    section[data-testid="stSidebar"] {
+        background-color: #262730 !important;
+        color: #B0B0B0 !important;
     }
-    .stSelectbox > div > div {
-        background-color: #3d3d3d;
-        color: #ffffff;
+    
+    section[data-testid="stSidebar"] * {
+        color: #B0B0B0;
     }
+    
+    section[data-testid="stSidebar"] > div {
+        background-color: #262730;
+    }
+    
+    /* All CSS class overrides for sidebar */
+    .css-1d391kg, .css-1lcbmhc, .css-1aumxhk, .css-17eq0hr {
+        background-color: #262730 !important;
+        color: #B0B0B0 !important;
+    }
+    
+    /* Universal text color fix */
+    .stApp *, .main *, section[data-testid="stSidebar"] * {
+        color: #B0B0B0 ;
+    }
+    
+    /* Headers specifically */
+    h1, h2, h3, h4, h5, h6 {
+        color: #fafafa !important;
+    }
+    
+    /* Selectbox - comprehensive fix */
+    .stSelectbox {
+        color: #B0B0B0 ;
+    }
+    
+    .stSelectbox label {
+        color: #B0B0B0 ;
+    }
+    
+    .stSelectbox > div > div,
+    .stSelectbox [data-baseweb="select"],
+    div[data-baseweb="select"] {
+        background-color: #40414f !important;
+        color: #fafafa !important;
+        border: 1px solid #565869 !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] > div,
+    div[data-baseweb="select"] > div {
+        background-color: #40414f !important;
+        color: #fafafa !important;
+    }
+    
+    div[data-baseweb="select"] input {
+        color: #fafafa !important;
+        background-color: transparent !important;
+    }
+    
+    /* Dropdown menu comprehensive fix */
+    div[data-baseweb="popover"],
+    ul[data-baseweb="menu"] {
+        background-color: #40414f !important;
+        border: 1px solid #565869 !important;
+        box-shadow: 0 4px 6px rgb(85, 85, 85) !important;
+    }
+    
+    li[data-baseweb="menu-item"],
+    div[role="option"] {
+        background-color: #40414f !important;
+        color: #B0B0B0 !important;
+    }
+    
+    li[data-baseweb="menu-item"]:hover,
+    div[role="option"]:hover {
+        background-color: #565869 !important;
+        color: #B0B0B0 !important;
+    }
+    
+    /* Text inputs */
     .stTextInput > div > div > input {
-        background-color: #3d3d3d;
-        color: #ffffff;
+        background-color: #40414f !important;
+        color: #B0B0B0 !important;
+        border: 1px solid #565869 !important;
     }
+    
+    .stTextInput label {
+        color: #B0B0B0 !important;
+    }
+    
+    /* Text areas */
     .stTextArea > div > div > textarea {
-        background-color: #3d3d3d;
-        color: #ffffff;
+        background-color: #40414f !important;
+        color: #B0B0B0 !important;
+        border: 1px solid #565869 !important;
+    }
+    
+    .stTextArea label {
+        color: #B0B0B0 !important;
+    }
+    
+    /* Sliders */
+    .stSlider label {
+        color: #B0B0B0 !important;
+    }
+    
+    .stSlider > div > div > div {
+        color: #B0B0B0 !important;
+    }
+    
+    /* Buttons */
+    .stButton > button {
+        background-color: #40414f !important;
+        color: #fafafa !important;
+        border: 1px solid #565869 !important;
+    }
+    
+    .stButton > button:hover {
+        background-color: #565869 !important;
+        color: #fafafa !important;
+    }
+    
+    /* Metrics - most important fix */
+    div[data-testid="metric-container"] {
+        background-color: #262730 !important;
+        border: 1px solid #565869 !important;
+        color: #fafafa !important;
+        padding: 1rem !important;
+        border-radius: 0.5rem !important;
+    }
+    
+    div[data-testid="metric-container"] * {
+        color: #fafafa !important;
+        background-color: transparent !important;
+    }
+    
+    /* Cards and containers */
+    .element-container, .stMarkdown, .stText {
+        color: #fafafa !important;
+    }
+    
+    /* Charts */
+    .stPlotlyChart {
+        background-color: #262730 !important;
+        border-radius: 0.5rem !important;
+    }
+    
+    /* Columns */
+    .css-1r6slb0, .css-12w0qpk, .css-ocqkz7, .css-1kyxreq {
+        background-color: #0e1117 !important;
+    }
+    
+    /* Expandable sections */
+    .streamlit-expanderHeader {
+        background-color: #40414f !important;
+        color: #fafafa !important;
+        border: 1px solid #565869 !important;
+    }
+    
+    .streamlit-expanderContent {
+        background-color: #262730 !important;
+        border: 1px solid #565869 !important;
+        border-top: none !important;
+    }
+    
+    /* Status messages */
+    .stSuccess {
+        background-color: #1e3a1e !important;
+        color: #fafafa !important;
+        border-left: 4px solid #4caf50 !important;
+    }
+    
+    .stError {
+        background-color: #3a1e1e !important;
+        color: #fafafa !important;
+        border-left: 4px solid #f44336 !important;
+    }
+    
+    .stWarning {
+        background-color: #3a3a1e !important;
+        color: #fafafa !important;
+        border-left: 4px solid #ff9800 !important;
+    }
+    
+    .stInfo {
+        background-color: #1e1e3a !important;
+        color:  #565869  !important;
+        border-left: 4px solid #2196f3 !important;
+    }
+    
+    /* Form elements */
+    .stCheckbox label, .stRadio label {
+        color:  #565869  !important;
+    }
+    
+    .stNumberInput > div > div > input,
+    .stDateInput > div > div > input,
+    .stTimeInput > div > div > input {
+        background-color: #40414f !important;
+        color:  #565869  !important;
+        border: 1px solid #565869 !important;
+    }
+    
+    .stNumberInput label,
+    .stDateInput label,
+    .stTimeInput label {
+        color: #fafafa !important;
+    }
+    
+    /* Progress bars */
+    .stProgress > div > div > div {
+        background-color: #565869 !important;
+    }
+    
+    /* Scrollbars */
+    ::-webkit-scrollbar {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #262730 !important;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #565869 !important;
+        border-radius: 4px !important;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #6b6c7d !important;
+    }
+    
+    /* Override any remaining white backgrounds */
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricDelta"] {
+        color: #2d3436 !important;
+    }
+    
+    /* Force override stubborn elements */
+    .css-1cpxqw2, .css-16idsys, .css-10trblm, .css-1629p8f {
+        color:  #2d3436 !important;
+        background-color:  #565869 ;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -71,11 +302,6 @@ st.sidebar.button(
     on_click=toggle_dark_mode,
     key="dark_mode_toggle"
 )
-
-# --- Database Setup (SQLite) ---
-conn = sqlite3.connect('burnout_app.db', check_same_thread=False)
-c = conn.cursor()
-
 
 # --- Database Setup (SQLite) ---
 conn = sqlite3.connect('burnout_app.db', check_same_thread=False)
@@ -170,9 +396,9 @@ def wellness_badge(points):
         return "🙂 Keep Going"
 
 
+
 # --- Sidebar - User Inputs ---
 st.sidebar.header("🧠 Enter Employee Info")
-
 
 user_name = st.sidebar.text_input("Enter your name or nickname:", key="user_name")
 gender = st.sidebar.selectbox("Gender", ["Male", "Female"], key="gender")
@@ -190,8 +416,6 @@ company_type_enc = 1 if company_type == "Product" else 0
 wfh_enc = 1 if wfh == "Yes" else 0
 work_mode_risk = company_type_enc * wfh_enc
 fatigue_x_resource = mental_fatigue * resource_allocation
-
-# Prepare feature vector and scale
 features = np.array([[gender_enc, company_type_enc, wfh_enc, designation,
                       resource_allocation, mental_fatigue, experience,
                       is_new, work_mode_risk, fatigue_x_resource]])
@@ -523,7 +747,7 @@ st.markdown(f"""
     margin: 20px 0;
     border: 3px solid {status_color};
     box-shadow: 0 0 30px rgba(255,255,255,0.1);
-    animation: pulse 2s infinite;
+    animation: pulse 2s ;
 ">
     <h3 style="color: white; margin: 0;">🔥 Burnout Intensity</h3>
     <h1 style="
@@ -2432,24 +2656,6 @@ st.markdown("""
     50% { transform: translateY(-10px); }
 }
 
-.stSelectbox > div > div {
-    border-radius: 12px !important;
-    border: 2px solid #e2e8f0 !important;
-    padding: 8px !important;
-}
-
-.stTextArea > div > div > textarea {
-    border-radius: 16px !important;
-    border: 2px solid #e2e8f0 !important;
-    padding: 16px !important;
-    font-family: 'Inter', sans-serif !important;
-    line-height: 1.6 !important;
-}
-
-.stTextArea > div > div > textarea:focus {
-    border-color: #667eea !important;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
